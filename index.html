@@ -9,13 +9,15 @@
 	<div>
 		<button class='get'>点击获取</button>
 		<button class='set1'>点击定位1</button>
-		<button hidden="hidden" class='set2'>点击定位2</button>
-	</div>
 		
+		<button hidden="hidden" class='set2'>点击定位2</button>
+		<div id='contain'></div>
+	</div>
+		<!-- 这里地址不能写相对路径，端口根据实际项目端口 打开参数 page是指要打开的页码，top是当前页面离顶部的高度，zoom是指页面缩放比例 -->
 		<div id='ifreme' style='margin-left: 100px;width:80%;height:1000px'>
 			<iframe id="iframe01" name='iframe01' style="width:100%;height:100%;" 
-			src='http://127.0.0.1:8849/PDF测试/js/PDF.js/web/viewer.html?
-			file=http://127.0.0.1:8849/PDF测试/src/demo.pdf&
+			src='http://127.0.0.1:8848/pdfdemo2/js/PDF.js/web/viewer.html?  
+			file=http://127.0.0.1:8848/pdfdemo2/src/demo.pdf&
 			page=1&top=0&zoom=1.3'></iframe>
 		</div>
 
@@ -44,8 +46,8 @@
 				//获取子页面对应的页面编码和top
 				top = $("#iframe01").contents().find("#page_top").val();
 				cache = $("#iframe01").contents().find("#page_cache").val().split(" ")[0];
-				//console.log("父页面获取的top:"+$("#iframe01").contents().find("#page_top").val());
-				//console.log("父页面获取的页码编码:"+$("#iframe01").contents().find("#page_cache").val());		
+
+				$("#contain").text("获取的定位信息：top="+top+"::: cache="+cache)	
 			})
 			
 			$(".set1").click(function(){
